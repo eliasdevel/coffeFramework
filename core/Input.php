@@ -2,6 +2,14 @@
 namespace core;
 class Input
 {
+
+    public function __construct()
+    {
+        if (get_parent_class() != 'core/Controller' AND get_parent_class() != 'core/Model') {
+            return false;
+        }
+    }
+
     public static function postString($var)
     {
         return filter_input(INPUT_POST, $var, FILTER_SANITIZE_STRING);
