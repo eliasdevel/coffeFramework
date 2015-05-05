@@ -5,5 +5,6 @@ $routes = new Routes();
 
 //Set Your Routes Here
 $routes->setRoute('/','test');
+$routes->setRoute('elias','Elias');
 
 new Loader($routes->getRoutes(),$routes->getAccess());

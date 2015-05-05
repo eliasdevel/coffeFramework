@@ -17,19 +17,25 @@ class Loader
     private $path = array();
     private $request_path = array();
 
-    public  function __construct($routes, $acess)
+    public function __construct($routes, $acess)
     {
-        $call = self::parsePath()->call;
+        $call = self::parsePath()->call_parts[0];
         if (in_array($call, $routes)) {
             $controller = $acess->$call->controller;
             $function = $acess->$call->function;
-            if (file_exists("controllers/$controller.php")){
+            if (file_exists("controllers/$controller.php")) {
                 require "controllers/$controller.php";
             }
             $controller = new $controller;
-            return $controller->$function();
+            if (isset(self::parsePath()->call_parts[1])) {
+                $parm = $parm = self::parsePath()->call_parts[1];
+                return $controller->$function($parm);
+            }else{
+                return $controller->$function();
+            }
         } else {
             echo '404';
+
         }
 
     }
