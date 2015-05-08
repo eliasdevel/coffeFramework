@@ -1,11 +1,13 @@
 <?php
-use core\Input as Input;
+use core\Controller as Controller;
+use core\library\Path as Path;
+use core\library\ConfigParser as Config;
 
-class Elias extends \core\Controller
+class Elias extends Controller
 {
 
     public function index($parm = null)
     {
-        view('test', array('var' => $parm));
+        $this->model()->insertTest();
     }
 }

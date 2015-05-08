@@ -6,6 +6,19 @@ namespace core;
  * Date: 04/05/15
  * Time: 22:40
  */
-class Controller {
+
+class Controller
+{
+    public function __construct()
+    {
+
+    }
+
+    public  function model()
+    {
+        require './models/'.get_called_class() . 'Model.php';
+        $class = get_called_class() . 'Model';
+        return new $class;
+    }
 
 }

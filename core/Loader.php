@@ -8,7 +8,6 @@
  */
 namespace core;
 
-use core\Controller as Controller;
 
 class Loader
 
