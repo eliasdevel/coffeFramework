@@ -14,10 +14,14 @@ class Controller
 
     }
 
-    public  function model()
+    public  function model($name = false)
     {
-        require './models/'.get_called_class() . 'Model.php';
+        if(!name){
         $class = get_called_class() . 'Model';
+        }else{
+            $class = $name . 'Model';
+        }
+        require './models/'.$class. '.php';
         return new $class;
     }
 
