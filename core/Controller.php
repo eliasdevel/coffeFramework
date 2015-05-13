@@ -16,7 +16,7 @@ class Controller
 
     public  function model($name = false)
     {
-        if(!name){
+        if(!$name){
         $class = get_called_class() . 'Model';
         }else{
             $class = $name . 'Model';
