@@ -33,8 +33,7 @@ class Loader
                 return $controller->$function();
             }
         } else {
-            echo '404';
-
+            echo file_get_contents('./assets/404.html');
         }
 
     }

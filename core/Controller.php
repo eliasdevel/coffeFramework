@@ -14,7 +14,7 @@ class Controller
 
     }
 
-    public  function model($name = false)
+    public static function model($name = false)
     {
         if(!$name){
         $class = get_called_class() . 'Model';
