@@ -4,7 +4,7 @@ Basic usage:
 In the file routes you declare your route, Controller to acess, function:default is index , and number of parms:default null  
 
 
-*File: routes.php:
+* File: routes.php:
 
 
 ```php
@@ -25,7 +25,7 @@ new Loader($routes->getRoutes(),$routes->getAccess());
 ```
 Now you needing create the file in controllers directory, for your respective access to controller;
 
-*File: controllers/Elias.php
+* File: controllers/Elias.php
 
 ```php
 <?php
@@ -59,7 +59,7 @@ class Elias extends Controller
 ```
 
 
-*File: models/EliasModel.php
+* File: models/EliasModel.php
 ```php
 <?php
 use core\Model as Model;
