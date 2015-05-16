@@ -19,6 +19,10 @@ class Loader
     public function __construct($routes, $acess)
     {
         $call = self::parsePath()->call_parts[0];
+        if (isset(self::parsePath()->call_parts[1])) $call .= '/' . self::parsePath()->call_parts[1];
+
+        if (isset($acess->$call->parms)) if (count(self::parsePath()->call_parts) - 2 <> $acess->$call->parms) view('404');
+
         if (in_array($call, $routes)) {
             $controller = $acess->$call->controller;
             $function = $acess->$call->function;
@@ -26,12 +30,19 @@ class Loader
                 require "controllers/$controller.php";
             }
             $controller = new $controller;
-            if (isset(self::parsePath()->call_parts[1])) {
-                $parm = $parm = self::parsePath()->call_parts[1];
-                return $controller->$function($parm);
+            if (isset($acess->$call->parms)) {
+                $parms = [];
+
+                for ($i = 1; $i <= $acess->$call->parms; $i++) {
+                    $parm = 'parm_' . $i;
+                    $val = self::parsePath()->call_parts[$i + 1];
+                    $parms[$i] = $val;
+                }
+                call_user_func_array([$controller, $function], $parms);
             }else{
-                return $controller->$function();
+                call_user_func([$controller,$function]);
             }
+
         } else {
             view('404');
         }

@@ -10,7 +10,7 @@ use core\library\Path as Path;
     <style>
         body::after{
             content: "";
-            background: url('http://<?= Path::baseUrl()?>/assets/coffee.jpg');
+            background: url('<?= Path::baseUrl()?>/assets/coffee.jpg');
             opacity: 0.6;
             top: 0;
             left: 0;
