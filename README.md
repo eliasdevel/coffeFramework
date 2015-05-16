@@ -5,7 +5,7 @@ In the file routes you declare you route, Controller to acess, function:default 
 
 
 
-Example file $routes.php:
+Example file routes.php:
 
 ```
 <?php
