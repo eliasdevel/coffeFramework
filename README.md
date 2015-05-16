@@ -4,10 +4,10 @@ Basic usage:
 In the file routes you declare your route, Controller to acess, function:default is index , and number of parms:default null  
 
 
+*File: routes.php:
 
-Example file routes.php:
 
-```
+```php
 <?php
 use core\Routes as Routes;
 use core\Loader as Loader;
@@ -21,13 +21,13 @@ $routes->setRoute('elias','Elias');
 
 new Loader($routes->getRoutes(),$routes->getAccess());
 
-```
 
+```
 Now you needing create the file in controllers directory, for your respective access to controller;
 
-file: controllers/Elias.php
+*File: controllers/Elias.php
 
-```
+```php
 <?php
 use core\Controller as Controller;
 use core\library\Path as Path;
@@ -59,8 +59,8 @@ class Elias extends Controller
 ```
 
 
-file: models/EliasModel.php
-```
+*File: models/EliasModel.php
+```php
 <?php
 use core\Model as Model;
 
