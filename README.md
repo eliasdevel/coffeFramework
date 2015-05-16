@@ -1,7 +1,7 @@
 # coffeeFramework
 Basic usage:
 
-In the file routes you declare you route, Controller to acess, function:default is index , and number of parms:default null  
+In the file routes you declare your route, Controller to acess, function:default is index , and number of parms:default null  
 
 
 
