@@ -21,7 +21,10 @@ class Loader
         $call = self::parsePath()->call_parts[0];
         if (isset(self::parsePath()->call_parts[1])) $call .= '/' . self::parsePath()->call_parts[1];
 
-        if (isset($acess->$call->parms)) if (count(self::parsePath()->call_parts) - 2 <> $acess->$call->parms) view('404');
+        if (isset($acess->$call->parms)) if (count(self::parsePath()->call_parts) - 2 <> $acess->$call->parms) {
+            view('404');
+            die;
+        }
 
         if (in_array($call, $routes)) {
             $controller = $acess->$call->controller;
@@ -44,6 +47,7 @@ class Loader
 
         } else {
             view('404');
+            die;
         }
 
     }
