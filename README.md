@@ -16,7 +16,7 @@ $routes = new Routes();
 //Set Your Routes Here
 $routes->setRoute('elias/aaa','Elias','aaa',2);
 
-//default route for index call
+//Example default route for index call of Elias Controller
 $routes->setRoute('elias','Elias');
 
 new Loader($routes->getRoutes(),$routes->getAccess());
