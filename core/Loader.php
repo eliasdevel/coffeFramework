@@ -34,7 +34,6 @@ class Loader
                 $parms = [];
 
                 for ($i = 1; $i <= $acess->$call->parms; $i++) {
-                    $parm = 'parm_' . $i;
                     $val = self::parsePath()->call_parts[$i + 1];
                     $parms[$i] = $val;
                 }

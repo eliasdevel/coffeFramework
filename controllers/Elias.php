@@ -9,6 +9,7 @@ class Elias extends Controller
 
     public function index($parm = null)
     {
+        $this->model()->insertTest();
        echo Path::baseUrl();
 
     }
