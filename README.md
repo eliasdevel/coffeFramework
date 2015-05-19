@@ -23,7 +23,7 @@ new Loader($routes->getRoutes(),$routes->getAccess());
 
 
 ```
-Now you needing create the file in controllers directory, for your respective access to controller;
+Now you need create the file in controllers directory, for your respective access the controller;
 
 * File: controllers/Elias.php
 
@@ -39,7 +39,7 @@ class Elias extends Controller
 
     public function index($parm = null)
     {
-      //Call to EliasModel in models directory default call to ControllerName+Model.
+      //Call to EliasModel in models directory default call the ControllerName+Model.
       //if you use $this->model('Name')->insertTest(); the call is for NameModel
         $this->model()->insertTest();
       
