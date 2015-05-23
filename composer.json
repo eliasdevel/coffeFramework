@@ -1,5 +1,5 @@
 {
-    "name": "eliasdevel/coffe-framework",
+    "name": "eliasdevel/coffee-framework",
     "description": "Basic PHP Framework",
     "license": "FREE",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "twitter/bootstrap": "3.3.*@dev"
+        "twitter/bootstrap": "3.3.*"
 
     }
 }
