@@ -10,12 +10,25 @@ class Elias extends Controller
     public function index($parm = null)
     {
         $this->model()->insertTest();
-       echo Path::baseUrl();
+        echo Path::baseUrl();
 
     }
 
-    public function aaa($a, $b)
+    public function form()
     {
-        var_dump($a, $b);
+        view('layout', array('contentView' => 'formTest'));
     }
+
+    public function listRegisters()
+    {
+        view('layout', array('content' => view('listTest')));
+
+    }
+
+
+    public function save($id = false)
+    {
+
+    }
+
 }

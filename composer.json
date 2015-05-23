@@ -1,0 +1,16 @@
+{
+    "name": "eliasdevel/coffe-framework",
+    "description": "Basic PHP Framework",
+    "license": "FREE",
+    "authors": [
+        {
+            "name": "Elias Müller",
+            "email": "elias.muller1@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "twitter/bootstrap": "3.3.*@dev"
+
+    }
+}
