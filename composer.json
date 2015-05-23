@@ -10,7 +10,8 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "twitter/bootstrap": "3.3.*"
+        "twitter/bootstrap": "3.3.*",
+        "components/jquery": "dev-master"
 
     }
 }
