@@ -2,7 +2,8 @@
     "name": "eliasdevel/coffee-framework",
     "description": "Basic PHP Framework",
     "license": "FREE",
-    "stability": "stable",
+    "minimum-stability": "stable",
+    
     "authors": [
         {
             "name": "Elias Müller",
