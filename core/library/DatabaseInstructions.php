@@ -38,7 +38,7 @@ class DatabaseInstructions
 
     public  function update($table, $data, $id)
     {
-
+        $id = (int) $id;
         $columns = array_keys($data);
         foreach ($columns as $col) {
             $parsedColumns[] = "$col = :$col";
@@ -52,8 +52,15 @@ class DatabaseInstructions
 
     public static function delete($table, $id)
     {
+        $id = (int) $id;
+
         $con = new Connection();
         return $con->prepare("DELETE FROM $table  WHERE id = $id")->execute();
+    }
+
+    public function selectById($table, $id){
+        $id = (int) $id;
+        return $this->selectWhithoutFilter("Select * from $table where id = $id");
     }
 
     public function selectWhithoutFilter($instruction)

@@ -13,6 +13,10 @@ use core\library\Path as Path;
 <body>
 <script src="<?= Path::baseUrl()?>/vendor/components/jquery/jquery.js"></script>
 <script src="<?= Path::baseUrl()?>/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+<?php view('menu'); ?>
+
 <?php view($contentView) ?>
+
+<?php view('footer'); ?>
 </body>
 </html>
