@@ -6,7 +6,7 @@
  * Date: 04/05/15
  * Time: 23:32
  */
-namespace core;
+namespace Core;
 
 
 class Loader

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= \core\library\Path::baseUrl()?>/assets/menu.css"/>
+<link rel="stylesheet" href="<?= \Core\library\Path::baseUrl()?>/assets/menu.css"/>
 <nav style="position: fixed" class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">

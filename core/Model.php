@@ -1,7 +1,7 @@
 <?php
-namespace core;
+namespace Core;
 
-use core\library\DatabaseInstructions as DB;
+use Core\library\DatabaseInstructions as DB;
 
 class Model extends DB
 {

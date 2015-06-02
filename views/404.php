@@ -1,6 +1,6 @@
 <?php
 
-use core\library\Path as Path;
+use Core\library\Path as Path;
 ?>
 <!DOCTYPE html>
 <html>

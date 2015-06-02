@@ -1,5 +1,5 @@
 <?php
-namespace core;
+namespace Core;
 /**
  * Created by PhpStorm.
  * User: elias

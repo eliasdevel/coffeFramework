@@ -1,5 +1,5 @@
 <?php
-use core\Model as Model;
+use Core\Model as Model;
 
 class TestNameModel extends Model{
     private $table = 'teste';

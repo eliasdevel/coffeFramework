@@ -5,9 +5,9 @@
  * Date: 08/05/15
  * Time: 02:16
  */
-namespace core\library;
+namespace Core\library;
 
-use core\library\DatabaseConnect as Connection;
+use Core\library\DatabaseConnect as Connection;
 
 class DatabaseInstructions
 {

@@ -1,7 +1,7 @@
 <?php
-namespace core\library;
+namespace Core\library;
 
-use core\library\Path as Path;
+use Core\library\Path as Path;
 
 class ConfigParser
 {

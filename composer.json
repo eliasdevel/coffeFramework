@@ -15,5 +15,11 @@
         "twitter/bootstrap": "3.3.*",
         "components/jquery": "dev-master"
 
+    },
+
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/"
+        }
     }
 }

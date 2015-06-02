@@ -2,9 +2,9 @@
 /**
  * Use PDO only
  */
-namespace core\library;
+namespace Core\library;
 
-use core\library\ConfigParser as Parse;
+use Core\library\ConfigParser as Parse;
 
 class DatabaseConnect extends \PDO
 {

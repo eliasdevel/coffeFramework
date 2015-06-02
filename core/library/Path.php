@@ -1,5 +1,5 @@
 <?php
-namespace core\library;
+namespace Core\library;
 
 class Path
 {

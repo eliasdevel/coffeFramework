@@ -5,7 +5,7 @@
  * Date: 08/05/15
  * Time: 03:17
  */
-namespace core\library;
+namespace Core\library;
 
 class PDO extends \PDO{
 

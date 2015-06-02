@@ -1,12 +1,12 @@
 <?php
-namespace core;
+namespace Core;
 
 class Input
 {
 
     public function __construct()
     {
-        if (get_parent_class() != 'core/Controller' AND get_parent_class() != 'core/Model') {
+        if (get_parent_class() != 'Core/Controller' AND get_parent_class() != 'Core/Model') {
             return false;
         }
     }
