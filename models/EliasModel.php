@@ -5,9 +5,10 @@ class EliasModel extends Model
 {
     public function __construct()
     {
+        $this->table = 'user';
         parent::__construct();
 
-        $this->table = 'user';
+
         $this->setFilters([
             'name'     =>
                 [
@@ -23,16 +24,10 @@ class EliasModel extends Model
                     'options' => $this->stringLength(4, 20)
                 ]
         ]);
+
+        var_dump($this->findByName('Elias'));
     }
 
 
-    public function findByName()
-    {
 
-    }
-
-    public function findByEmail()
-    {
-
-    }
 }
