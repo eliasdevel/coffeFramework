@@ -14,6 +14,7 @@ class Model extends DB
     public function __construct(){
         $ret = $this->selectWhithoutFilter("SELECT COLUMN_NAME as c FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = (SELECT database() )AND TABLE_NAME = '{$this->table}';");
         foreach($ret as $column){
+            $this->like[] = 'like'. ucfirst($column[0]);
             $this->findBy[] = 'findBy'. ucfirst($column[0]);
         }
     }
@@ -24,15 +25,22 @@ class Model extends DB
 
     function __call($func, $params){
 
+        //like parser
+        if(in_array($func, $this->like)){
+            $column = str_replace('like','',$func);
+            $column = strtolower($column);
+             count($params) > 1 ? $this->where[]= " ( $column LIKE '%" .implode("%' OR $column LIKE '%" ,$params) ."%' ) " : $this->where[] = " $column LIKE '%{$params[0]}%'";
+        }
+
+        //equals parser
         if(in_array($func, $this->findBy)){
             $column = str_replace('findBy','',$func);
             $column = strtolower($column);
-            count($params>1) ? $this->where[]= " ( $column LIKE '%" .implode("%' OR $column LIKE %'" ,$params) ."%' ) " : $this->where[] = " $column LIKE '%{$parms[0]}%'";
-            var_dump($this->where);
+
+             count($params) > 1 ? $this->where[] = " $column IN ('" .implode("','" ,$params) ."') " : $this->where[] = " $column = '{$params[0]}' ";
+
         }
-        count($this->where)>1? $where = " WHERE ". implode(' AND ',$this->where): count($this->where == 1)? $where = " WHERE ".$this->where[0]: $where = '';
-        $sql = "SELECT $this->select FROM $this->table $where";
-        return ($this->selectWhithoutFilter($sql));
+
     }
     public function setFilters($filter_input_array_rules){
         $this->data = filter_input_array(INPUT_POST, $filter_input_array_rules);
@@ -43,6 +51,12 @@ class Model extends DB
         return $id ? $this->update($this->table, $this->data, $id) : $this->insert($this->table, $this->data);
     }
 
+    public function result(){
+        !empty($this->where) ? $where = " WHERE ". implode(' AND ',$this->where) :  $where = '';
+        $sql = "SELECT $this->select FROM $this->table $where";
+        echo $sql;
+        return $this->selectWhithoutFilter($sql);
+    }
 
     public function getById($id){
         return $this->selectById($this->table,$id);

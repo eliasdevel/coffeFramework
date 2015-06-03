@@ -25,7 +25,11 @@ class EliasModel extends Model
                 ]
         ]);
 
-        var_dump($this->findByName('Elias'));
+        $this->likeName('Elias');
+
+        $this->findByName('Elias');
+
+        var_dump($this->result());
     }
 
 
