@@ -56,7 +56,7 @@ class Loader
     }
 
 
-    public function load($load){
+    public static function load($load){
         require "$load".'.php';
     }
 

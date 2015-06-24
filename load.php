@@ -1,10 +1,12 @@
 <?php
-$this->load('library/Path');
-$this->load('library/ConfigParser');
-$this->load('library/DatabaseConnect');
-$this->load('library/DatabaseInstructions');
-$this->load('Model');
-$this->load('Controller');
-$this->load('View');
-$this->load('Input');
+use Core\Loader as Loader;
+
+Loader::load('library/Path');
+Loader::load('library/ConfigParser');
+Loader::load('library/DatabaseConnect');
+Loader::load('library/DatabaseInstructions');
+Loader::load('Model');
+Loader::load('Controller');
+Loader::load('View');
+Loader::load('Input');
 

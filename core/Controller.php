@@ -7,6 +7,8 @@ namespace Core;
  * Time: 22:40
  */
 
+use Core\Loader as Loader;
+
 class Controller
 {
     public function __construct()
@@ -21,7 +23,7 @@ class Controller
         }else{
             $class = $name . 'Model';
         }
-        require './models/'.$class. '.php';
+        Loader::load('models/'.$class);
         return new $class;
     }
 
