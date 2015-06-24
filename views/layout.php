@@ -15,7 +15,7 @@ use Core\library\Path as Path;
 <script src="<?= Path::baseUrl()?>/vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
 <?php view('menu'); ?>
 
-<?php view($contentView) ?>
+<?php view($contentView,$data) ?>
 
 <?php view('footer'); ?>
 </body>

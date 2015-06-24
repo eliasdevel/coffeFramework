@@ -5,6 +5,6 @@ function view($name, $parms = array())
     if (!(empty($parms))) foreach ($parms as $key => $parm) {
         $$key = $parm;
     }
-    \Core\Loader::load('views/'.$name);
+    include "views/$name.php";
     return ob_get_contents();
 }

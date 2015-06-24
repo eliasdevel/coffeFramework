@@ -1,6 +1,7 @@
 <?php
 
-use Core\library\Path as Path; ?>
+use Core\library\Path as Path;
+?>
 <form class="form-horizontal" method="post" action="<?= Path::baseUrl()?>/elias/save/1">
     <fieldset>
         <!-- Form Name -->

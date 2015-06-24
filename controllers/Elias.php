@@ -14,9 +14,13 @@ class Elias extends Controller
 
     }
 
-    public function form($id =null)
+    public function form($var_dum = null)
     {
-        view('layout', array('contentView' => 'formTest', 'form_values' => $this->model()->getById($id)));
+        view('layout', array('contentView' => 'formTest',
+            'data' =>
+                array('form_values' => $this->model()->findById($var_dum)->result())
+
+        ));
     }
 
     public function listRegisters()
@@ -28,7 +32,7 @@ class Elias extends Controller
 
     public function save($id = false)
     {
-    if($this->model()->save($id));
+        if ($this->model()->save($id)) ;
 
     }
 
