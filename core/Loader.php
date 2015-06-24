@@ -15,9 +15,12 @@ class Loader
 
     private $path = array();
     private $request_path = array();
+    private $file;
 
     public function __construct($routes, $acess)
     {
+        spl_autoload_register([$this,'load']);
+        require 'load.php';
         $call = self::parsePath()->call_parts[0];
         if (isset(self::parsePath()->call_parts[1])) $call .= '/' . self::parsePath()->call_parts[1];
 
@@ -29,8 +32,8 @@ class Loader
         if (in_array($call, $routes)) {
             $controller = $acess->$call->controller;
             $function = $acess->$call->function;
-            if (file_exists("controllers/$controller.php")) {
-                require "controllers/$controller.php";
+            if ($this->file = file_exists("controllers/$controller.php")) {
+                $this->load('controllers/'.$controller);
             }
             $controller = new $controller;
             if (isset($acess->$call->parms)) {
@@ -51,6 +54,12 @@ class Loader
         }
 
     }
+
+
+    public function load($load){
+        require "$load".'.php';
+    }
+
 
     private function parsePath()
     {
