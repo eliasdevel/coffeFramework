@@ -9,6 +9,7 @@
 namespace Core;
 
 
+
 class Loader
 
 {
@@ -32,9 +33,10 @@ class Loader
         if (in_array($call, $routes)) {
             $controller = $acess->$call->controller;
             $function = $acess->$call->function;
-            if ($this->file = file_exists("controllers/$controller.php")) {
-                $this->load('controllers/'.$controller);
-            }
+//            if ($this->file = file_exists("controllers/$controller.php")) {
+//
+//            }
+            $controller = "Controllers\\$controller";
             $controller = new $controller;
             if (isset($acess->$call->parms)) {
                 $parms = [];
@@ -56,9 +58,9 @@ class Loader
     }
 
 
-    public static function load($load){
-        require "$load".'.php';
-    }
+//    public static function load($load){
+//        require "$load".'.php';
+//    }
 
 
     private function parsePath()

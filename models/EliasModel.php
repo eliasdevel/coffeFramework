@@ -1,4 +1,6 @@
 <?php
+namespace Models;
+
 use Core\Model as Model;
 
 class EliasModel extends Model

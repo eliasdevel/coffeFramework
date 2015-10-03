@@ -20,10 +20,12 @@ class Controller
     {
         if(!$name){
         $class = get_called_class() . 'Model';
+
         }else{
             $class = $name . 'Model';
         }
-        Loader::load('models/'.$class);
+        $class = str_replace('Controllers\\','',$class);
+        $class = "Models\\$class";
         return new $class;
     }
 

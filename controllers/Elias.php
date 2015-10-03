@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 use Core\Controller as Controller;
 use core\library\Path as Path;
 use core\library\ConfigParser as Config;

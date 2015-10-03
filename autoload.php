@@ -1,7 +1,9 @@
 <?php
 spl_autoload_register(function ($class_name) {
     $parts = explode('\\', $class_name);
-    require lcfirst(implode('/', $parts)) . '.php';
+    if (file_exists($file = lcfirst(implode('/', $parts)) . '.php')){
+        require $file;
+    }
 });
 
 
