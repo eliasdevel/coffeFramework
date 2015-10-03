@@ -29,6 +29,8 @@ Now you need create the file in controllers directory, for your respective acces
 
 ```php
 <?php
+namespace Controllers;
+
 use core\Controller as Controller;
 use core\library\Path as Path;
 use core\library\ConfigParser as Config;
@@ -62,6 +64,8 @@ class Elias extends Controller
 * File: models/EliasModel.php
 ```php
 <?php
+namespace Models;
+
 use core\Model as Model;
 
 class EliasModel extends Model{
