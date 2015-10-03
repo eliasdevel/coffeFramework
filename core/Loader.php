@@ -8,6 +8,7 @@
  */
 namespace Core;
 
+require 'View.php';
 
 
 class Loader
