@@ -19,8 +19,8 @@ class Loader
 
     public function __construct($routes, $acess)
     {
-        spl_autoload_register([$this,'load']);
-        require 'load.php';
+
+
         $call = self::parsePath()->call_parts[0];
         if (isset(self::parsePath()->call_parts[1])) $call .= '/' . self::parsePath()->call_parts[1];
 

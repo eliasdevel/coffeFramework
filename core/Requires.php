@@ -5,8 +5,7 @@
  * Date: 05/05/15
  * Time: 00:14
  */
-require 'Loader.php';
-require 'Routes.php';
+include 'autoload.php';
 require 'routes.php';
 
 

@@ -1,6 +1,6 @@
 <?php
-use core\Routes as Routes;
 use core\Loader as Loader;
+use core\Routes as Routes;
 
 $routes = new Routes();
 

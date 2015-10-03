@@ -16,11 +16,11 @@ class Elias extends Controller
 
     public function form($var_dum = null)
     {
-        view('layout', array('contentView' => 'formTest',
+        view('layout', ['contentView' => 'formTest',
             'data' =>
-                array('form_values' => $this->model()->findById($var_dum)->result())
+                ['form_values' => $this->model()->findById($var_dum)->result()]
 
-        ));
+        ]);
     }
 
     public function listRegisters()
