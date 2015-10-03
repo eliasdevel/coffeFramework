@@ -18,6 +18,7 @@ class Routes
         ];
     }
 
+    
     public function getRoutes()
     {
         return $this->routes;
