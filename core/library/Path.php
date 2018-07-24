@@ -12,7 +12,7 @@ class Path
             $protocol = 'http';
         }
         $parts = explode('/', $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-
-        return $parts[0] . '//' . $parts[2].'/'.$parts[3];
+       
+        return $parts[0] . '//' . $parts[2].'/';
     }
 }

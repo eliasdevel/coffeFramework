@@ -66,6 +66,8 @@ class DatabaseInstructions
     public function selectWhithoutFilter($instruction)
     {
         $con = new Connection();
+        // echo $instruction;
+        // die;
         $stm = $con->query($instruction);
         return $stm->fetchAll();
     }

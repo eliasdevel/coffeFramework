@@ -20,7 +20,7 @@ class Elias extends Controller
     {
         view('layout', ['contentView' => 'formTest',
             'data' =>
-                ['form_values' => $this->model()->findById($var_dum)->result()]
+                ['form_values' => [1,1,1,1,1]]
 
         ]);
     }

@@ -6,7 +6,8 @@ $routes = new Routes();
 
 //Set Your Routes Here
 $routes->setRoute('test','test');
-$routes->setRoute('elias','Elias');
+
+$routes->setRoute('can_list','CanData');
 
 $routes->setRoute('elias/aaa','Elias','aaa',2);
 $routes->setRoute('elias/form','Elias','form');

@@ -3,11 +3,11 @@ namespace Models;
 
 use Core\Model as Model;
 
-class EliasModel extends Model
+class CanDataModel extends Model
 {
     public function __construct()
     {
-        $this->table = 'user';
+        $this->table = 'can_data cd LEFT JOIN pgn_description pd on pd.pid = cd.pgn ';
         parent::__construct();
 
 
