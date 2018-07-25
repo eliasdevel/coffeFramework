@@ -9,6 +9,8 @@ $routes->setRoute('test','test');
 
 $routes->setRoute('can_list','CanData');
 
+$routes->setRoute('can_list/translate','CanData','translate',1);
+
 $routes->setRoute('elias/aaa','Elias','aaa',2);
 $routes->setRoute('elias/form','Elias','form');
 $routes->setRoute('elias/save','Elias','save',1);

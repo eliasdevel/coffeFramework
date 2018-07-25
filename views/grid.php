@@ -16,8 +16,11 @@
     <tr>
       <th scope="row"><?= $key + 1 ?></th>
       <?php foreach( $cols as $keyc => $val):  ?>
-      
-        <td> <?= $val== 'Data Hora' ?  implode('/',array_reverse(explode('-',explode(' ',$cels[$keyc])[0]))).' '. explode(' ',$cels[$keyc])[1] : $cels[$keyc] ?> </td>
+        <?php if(isset($link) && $keyc ==0 ):?>
+        <td><a href="<?= $link ?><?= $cels[$keyc] ?>"><?=$cels[$keyc]?> </a></td>
+        <?php else: ?>    
+          <td> <?= $val== 'Data Hora' ?  implode('/',array_reverse(explode('-',explode(' ',$cels[$keyc])[0]))).' '. explode(' ',$cels[$keyc])[1] : $cels[$keyc] ?> </td>
+        <?php endif; ?>
       <?php endforeach; ?>  
     </tr>
     <?php endforeach; ?>

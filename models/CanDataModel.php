@@ -28,9 +28,15 @@ class CanDataModel extends Model
         ]);
 
 
+        if(!empty($_GET['pgn'])) $this->where(['cd.pgn',(int)$_GET['pgn']]);
+        if(!empty($_GET['description'])) $this->where(['pd.description','ilike',"'%".filter_input(INPUT_GET, 'description', FILTER_SANITIZE_STRING)."%'"]); 
 
     }
+    public function getTranslate($pgn){
+        $pgn = (int) $pgn;
+        return $this->selectWhithoutFilter("select * from can_translate where PGN = $pgn ;");
+    }
 
-
+    
 
 }

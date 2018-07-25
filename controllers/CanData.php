@@ -11,10 +11,10 @@ class CanData extends Controller
 
     public function index()
     {
-      
-        $modelQuery = $this->model()->select(['cd.pgn','pd.description','cd.data','cd.date_time'],'DISTINCT')->orderBy('cd.date_time')->desc();
-        if(!empty($_GET['pgn'])) $modelQuery->where(['cd.pgn',$_GET['pgn']]);
-        if(!empty($_GET['description'])) $modelQuery->where(['pd.description','ilike',"'%".$_GET['description']."%'"]); 
+       
+
+        $modelQuery = $this->model()->select([' cd.pgn ','pd.description','cd.data','cd.date_time'],'DISTINCT')->orderBy('cd.date_time')->desc();
+        
         
         view('layout', [
             'title' => 'Lista Can',
@@ -22,11 +22,25 @@ class CanData extends Controller
             'data' =>  [
                     'searchCols' => ['pgn'=> 'PGN' , 'description' => 'Descrição'],
                     'vals' => $modelQuery->result(),
-                    'cols' =>['Pgn','Descrição','Dados','Data Hora']
+                    'cols' =>['Pgn','Descrição','Dados','Data Hora'],
+                    'link' => Path::baseUrl().'can_list/translate/'
                        ]
         ]);
        
 
+    }
+    public function translate($pgn ){
+        $modelQuery = $this->model()->getTranslate($pgn);
+        
+        view('layout', [
+            'title' => 'Lista Can',
+            'contentView' => 'grid',
+            'data' =>  [
+                     'searchCols' => ['pgn'=> 'PGN' , 'description' => 'Descrição'],
+                    'vals' => $modelQuery,
+                    'cols' =>['Pgn','Descrição','Tamanho','Intervalo Transmissão','Acronym','Posicao','Spn Len','SPN','Descrição','Data Range','Oper Range','resolução']
+                       ]
+        ]);
     }
 
     public function form($var_dum = null)
