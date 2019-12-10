@@ -71,7 +71,9 @@ class Model extends DB
         }
     }
 
-
+    public function getLastId(){
+         return $this->selectWhithoutFilter("select id from {$this->table} order by id limit 1")[0]['id'];
+    }
 
 
 }

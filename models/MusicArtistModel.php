@@ -29,11 +29,13 @@ class MusicArtistModel extends Model
     public function deleteMusicRelations($id)
     {
         $sql = "DELETE FROM ".$this->table." where music_id = ". (int) $id;
+
         return( $this->execute($sql));
     }
     public function deleteArtistRelations($id)
     {
         $sql = "DELETE FROM ".$this->table." where artist_id = ". (int) $id;
+
         return( $this->execute($sql));
     }
 

@@ -32,6 +32,8 @@ class DatabaseInstructions
 
         $parsedColumnsForParms = ':' . implode(', :', $columns);
         $con = new Connection();
+//        var_dump("INSERT INTO $table($parsedColumns) VALUES($parsedColumnsForParms)");
+//        die;
         $con->prepare("INSERT INTO $table($parsedColumns) VALUES($parsedColumnsForParms)")->execute($data);
 
     }
@@ -63,6 +65,9 @@ class DatabaseInstructions
         return $this->selectWhithoutFilter("Select * from $table where id = $id");
     }
 
+
+
+
     protected function execute($sql)
     {
         $con = new Connection();
@@ -73,7 +78,7 @@ class DatabaseInstructions
     {
 //        var_dump("aa");
         $con = new Connection();
-
+        
         $stm = $con->query($instruction);
         return $stm->fetchAll();
     }
