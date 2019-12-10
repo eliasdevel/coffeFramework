@@ -86,6 +86,7 @@ class Music extends Controller
     public function delete($id = false)
     {
         $base = Path::baseUrl();
+        $this->model('MusicArtist')->deleteMusicRelations((int) $id);
         if($this->model()->delete($this->model()->table,$id)){
             header("Location: $base");
         }
