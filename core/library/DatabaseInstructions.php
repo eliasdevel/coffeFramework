@@ -63,6 +63,12 @@ class DatabaseInstructions
         return $this->selectWhithoutFilter("Select * from $table where id = $id");
     }
 
+    protected function execute($sql)
+    {
+        $con = new Connection();
+
+        return $con->exec($sql);
+    }
     public function selectWhithoutFilter($instruction)
     {
 //        var_dump("aa");

@@ -12,9 +12,8 @@ class ArtistModel extends Model
         $this->setFilters([
             'name'     =>
                 [
-                    'filter'  => FILTER_VALIDATE_REGEXP,
-                    'flags'   => FILTER_SANITIZE_STRING | FILTER_NULL_ON_FAILURE,
-                    'options' => $this->stringLength(1, 20)
+                    'filter'  => FILTER_SANITIZE_STRING,
+
                 ],
 
 //            'artist_id' =>

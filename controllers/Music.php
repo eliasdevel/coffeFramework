@@ -30,12 +30,19 @@ class Music extends Controller
 
         $action = $id ==null? Path::baseUrl().'/save_new': Path::baseUrl().'/save/'.(int) $id;
         $form_data = $id ==null? null: $this->model()->findById($id)->result()[0];
+        $artist_ids_selected = $this->model('MusicArtist')->findByMusic_id((int) $id)->result();
+        $selected_ids =[];
+        foreach ($artist_ids_selected as $id){
+            $selected_ids[] = $id['artist_id'];
+        }
+
         view('layout', [
             'base_url'=>Path::baseUrl(),
             'contentView' => 'formMusic',
             'data' =>[
                 'action_form' => $action,
                 'form_data' => $form_data,
+                'selected_artists' => $selected_ids ,
                 'artists' => $this->model('Artist')->result()
             ]
 
@@ -50,9 +57,12 @@ class Music extends Controller
 
     public function save($id = false)
     {
+        $this->model('MusicArtist')->deleteMusicRelations((int) $id);
+
         foreach ($_POST['artists'] as $artist_id){
-            $this->model('MusicArtist')->deleteArtistRelation((int) $artist_id);
+           $this->model('MusicArtist')->insert('music_artist_relation',['artist_id'=> $artist_id,'music_id'=>$id]);
         }
+
         $base = Path::baseUrl();
         if($this->model()->save($id)){
             header("Location: $base");

@@ -1,3 +1,4 @@
+
 <form class="form-horizontal" method="post" action="<?= $action_form?>">
     <fieldset>
 
@@ -17,9 +18,10 @@
             <label class="col-md-4 control-label" for="textinput">Artistas:</label>
             <div class="col-md-4">
                 <select class="js-basic-multiple" name="artists[]" multiple="multiple"  style="width: 400px">
-                    <?php foreach ($artists as $artist):
+                    <?php
+                    foreach ($artists as $artist):
                         ?>
-                        <option value="<?= $artist['id']?>"> <?= $artist['name']?></option>
+                        <option <?= in_array($artist['id'],$selected_artists)? 'selected':''?> value="<?= $artist['id']?>"> <?= $artist['name']?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
