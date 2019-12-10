@@ -78,7 +78,7 @@ class DatabaseInstructions
     {
 //        var_dump("aa");
         $con = new Connection();
-        
+
         $stm = $con->query($instruction);
         return $stm->fetchAll();
     }
