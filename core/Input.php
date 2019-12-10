@@ -15,6 +15,10 @@ class Input
     {
         return filter_input(INPUT_POST, $var, FILTER_SANITIZE_STRING);
     }
+    public static function postArray($var)
+    {
+        return filter_input(INPUT_POST, $var, FILTER_FORCE_ARRAY);
+    }
 
     public static function postInt($var)
     {

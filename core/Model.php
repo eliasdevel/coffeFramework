@@ -14,7 +14,9 @@ class Model extends DB
 
 
     public function __construct(){
+//        echo 'teste';
         $ret = $this->selectWhithoutFilter("SELECT COLUMN_NAME as c FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = (SELECT database() ) AND TABLE_NAME = '{$this->table}';");
+
         foreach($ret as $column){
             $this->like[] = 'like'. ucfirst($column[0]);
             $this->findBy[] = 'findBy'. ucfirst($column[0]);
@@ -26,6 +28,7 @@ class Model extends DB
     }
 
     function __call($func, $parms){
+
         $this->parser($func,$parms);
         return $this;
     }
@@ -35,7 +38,8 @@ class Model extends DB
     public function save($id = false)
     {
         if(empty($this->data)) echo die('Please set the filters in your model');
-        return $id ? $this->update($this->table, $this->data, $id) : $this->insert($this->table, $this->data);
+
+        return $id ? $this->update($this->table, $this->data, $id) : $this->insert($this->table, $this->data) == "";
     }
 
     public function result(){

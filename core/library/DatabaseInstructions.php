@@ -65,7 +65,9 @@ class DatabaseInstructions
 
     public function selectWhithoutFilter($instruction)
     {
+//        var_dump("aa");
         $con = new Connection();
+
         $stm = $con->query($instruction);
         return $stm->fetchAll();
     }

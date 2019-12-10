@@ -6,14 +6,15 @@ use core\library\Path as Path;
 use core\library\ConfigParser as Config;
 
 
-class Elias extends Controller
+class Home extends Controller
 {
 
     public function index($parm = null)
     {
-        $this->model()->insertTest();
-        echo Path::baseUrl();
-
+        view('layout', [
+            'base_url'=>Path::baseUrl(),
+            'contentView' => 'apresentation',
+            'data' =>[]]);
     }
 
     public function form($var_dum = null)
