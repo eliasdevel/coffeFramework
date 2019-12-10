@@ -10,11 +10,20 @@
                        value="<?= $form_data==null?'': $form_data['name'] ?>"
                        class="form-control input-md">
             </div>
-            <select class="js-example-basic-multiple" name="artists[]" multiple="multiple">
-                <?php foreach ($artists as $artist):?>
-                    <option value="<?= $artist['id']?>"> <?= $artist['name']?></option>
-                <?php endforeach; ?>
-            </select>
+
+
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Músicas:</label>
+            <div class="col-md-4">
+                <select class="js-basic-multiple" name="musics[]" multiple="multiple"  style="width: 400px">
+                    <?php
+                    foreach ($musics as $music):
+                        ?>
+                        <option <?= in_array($music['id'],$selected_musics)? 'selected':''?> value="<?= $music['id']?>"> <?= $music['name']?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
         </div>
         <div class="form-group">

@@ -25,16 +25,25 @@ class Artist extends Controller
 
     public function form($id = null)
     {
+
         $action = $id ==null? Path::baseUrl().'/save_new': Path::baseUrl().'/save/'.(int) $id;
         $form_data = $id ==null? null: $this->model()->findById($id)->result()[0];
+        $music_ids_selected = $this->model('MusicArtist')->findByArtist_id((int) $id)->result();
+        $selected_ids =[];
+        foreach ($music_ids_selected as $id){
+            $selected_ids[] = $id['music_id'];
+        }
+
+
         view('layout', [
             'base_url'=>Path::baseUrl(),
             'contentView' => 'formArtist',
             'data' =>[
                 'action_form' => $action,
-                'form_data' => $form_data
+                'form_data' => $form_data,
+                'selected_musics' => $selected_ids ,
+                'musics' => $this->model('Music')->result()
             ]
-//                ['form_values' => $this->model()->findById($var_dum)->result()]
 
         ]);
     }
@@ -50,8 +59,18 @@ class Artist extends Controller
 
         $base = Path::baseUrl();
         if($this->model()->save($id)){
-            header("Location: $base");
+            if(!$id){
+                $id = $this->model()->getLastId();
+            }
+
+            $this->model('MusicArtist')->deleteArtistRelations((int) $id);
+            foreach ($_POST['musics'] as $music_id){
+
+                $this->model('MusicArtist')->insert('music_artist_relation',['artist_id'=>  $id,'music_id'=>$music_id]);
+            }
         }
+
+        header("Location: $base");
     }
 
      public function edit($id = false)
